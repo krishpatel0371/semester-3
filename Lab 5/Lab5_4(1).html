@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-5-4</title>
+</head>
+<body>
+	<form id="form" onsubmit="return validForm()">
+		<div>
+			<label for="Username">Username : </label><input type="text" id="Username" placeholder="Enter Username" />
+		</div>
+		<div>
+			<label for="Password">Password : </label><input type="password" id="Password" placeholder="Enter Password" />
+		</div>
+		<div>
+			<label for="Repeat">Repeat Password : </label><input type="password" id="Repeat" placeholder="Reenter Password" />
+		</div>
+		<div>
+			<label for="Age">Age : </label><input type="number" id="Age" placeholder="Enter Age" />
+		</div>
+		<div>
+			<label for="Enroll">Enrollment No : </label><input type="number" id="Enroll" placeholder="Enter Enrollment No." />
+		</div>
+		<div>
+			<label for="Email">Email : </label><input type="email" id="Email" placeholder="Enter Email">
+		</div>
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+	<p id="ErrorMessage"></p>
+	</form>
+<script type="text/javascript">
+	function validForm(){
+		ErrorMessage.style.color = "red";
+	var user = document.getElementById("Username").value;
+	var pass = document.getElementById("Password").value;
+	var repeat = document.getElementById("Repeat").value;
+	var age = document.getElementById("Age").value;
+	var enroll = document.getElementById("Enroll").value;
+	var email = document.getElementById("Email").value;
+	var error = document.getElementById("ErrorMessage");
+	error.innerHTML = "";
+		if(user === ""){
+			error.innerHTML += "Please enter Username";
+			return false;
+		}
+		else if(user.length < 8){
+			error.innerHTML += "Invalid Username";
+			return false;
+		}
+		pass_pattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$/;
+		if(pass === ""){
+			error.innerHTML += "Please Enter Password";
+			return false;
+		}
+		else if((pass.length<8 || pass.length>12) && !pass_pattern.test(pass)){
+			error.innerHTML += "Invalid Password";
+			return false;
+		}
+		if(repeat === ""){
+			error.innerHTML += "Please Reenter Password";
+			return false; 
+		}
+		else if(pass != repeat){
+			error.innerHTML += "Invalid Repeat Password";
+			return false;
+		}
+		if(age === ""){
+			error.innerHTML += "Please enter age";
+			return false;
+		}
+		else if(age<18){
+			error.innerHTML += "Age is less than 18";
+			return false;
+		}
+		if(enroll === ""){
+			error.innerHTML += "Please enter Enrollment Number";
+			return false;
+		}
+		else if(enroll.length != 11){
+			error.innerHTML += "Invalid Enrollment Number";
+			return false;
+		}
+		email_pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,6}$/;
+		if(email === ""){
+			error.innerHTML += "Please enter Email";
+			return false;
+		}
+		else if(!email_pattern.test(email)){
+			error.innerHTML += "Invalid Email";
+			return false;
+		}
+
+		return true;
+}
+</script>
+</body>
+</html>

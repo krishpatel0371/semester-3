@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic  calculator</title>
+    <style>
+        .header{
+            text-align: center;
+            margin: auto;
+        }
+        .bx{
+            width: 120px;
+        }
+      </style>
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <input id="display" type="box">
+            <button onclick="clearnum('c')">c</button>
+            <button onclick="cllastele()">x</button>
+        </div>
+        <div style="margin-right: 45px; margin-top: 5px;">
+        <div class="part1">
+            <button onclick="applynum('7')">7</button>
+            <button onclick="applynum('8')">8</button>
+            <button onclick="applynum('9')">9</button>
+            <button onclick="applynum('-')">-</button>
+        </div>
+        <div style="margin-top: 5PX;">
+            <button onclick="applynum('4')">4</button>
+            <button onclick="applynum('5')">5</button>
+            <button onclick="applynum('6')">6</button>
+            <button onclick="applynum('+')">+</button>
+        </div>
+        <div style="margin-top: 5PX;">
+            <button onclick="applynum('1')">1</button>
+            <button onclick="applynum('2')">2</button>
+            <button onclick="applynum('3')">3</button>
+            <button onclick="applynum('/')">/</button>
+        </div>
+        <div style="margin-top: 5PX;">
+            <button onclick="applynum('0')">0</button>
+            <button onclick="applynum('.')">.</button>
+            <button onclick="applynum('*')">*</button>
+            <button onclick="ansnum('=')">=</button>
+        </div>
+    </div>
+    </div>
+    <script>
+        function applynum(ch){
+             document.getElementById("display").value += ch; 
+        }
+        function ansnum(){
+            try {
+                document.getElementById('display').value = eval( document.getElementById('display').value)
+            } catch (error) {
+                document.getElementById('display').value = "error"
+            }
+        }
+        function clearnum(){
+            document.getElementById('display').value = "" 
+        }
+        function cllastele(){
+            document.getElementById('display').value =(document.getElementById('display').value).slice(0,-1);
+        }
+        function character(){
+            document.getElementById('display').value 
+        }
+
+    </script>
+    
+</body>
+</html>

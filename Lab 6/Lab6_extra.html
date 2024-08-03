@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab6_1</title>
+</head>
+
+<body>
+    <div id="div1" style="background-color: darkgreen; height: 500px; width: 600px;"></div>
+    <button onclick="change()">click the button to change color</button>
+    <button onclick="change()">stop</button>
+    <script>
+        var c;
+        function buttonclick() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            document.getElementById("div1").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+        }
+
+        function change(){
+            c = setInterval(buttonclick, 100)
+        }
+
+        function stop(){
+            clearInterval(c);
+        }
+    </script>
+</body>
+
+</html>

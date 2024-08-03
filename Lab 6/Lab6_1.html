@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab6_1</title>
+</head>
+
+<body>
+    <div id="div1" style="background-color: darkgreen; height: 500px; width: 600px;"></div>
+    <button onclick="buttonclick()">click the button to change color</button>
+    <script>
+        flag = 0;
+        function buttonclick() {
+            if (flag == 0) {
+
+                document.getElementById("div1").style.backgroundColor = "red"
+                document.getElementById("div1").style.width = "400px";
+                flag=1;
+            }
+            else {
+                document.getElementById("div1").style.backgroundColor = "darkgreen"
+                document.getElementById("div1").style.width = "600px"
+                flag=0
+            }
+        }
+
+    </script>
+</body>
+
+</html>

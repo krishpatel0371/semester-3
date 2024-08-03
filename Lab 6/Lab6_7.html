@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CRUDE</title>
+</head>
+<body>
+	<div>
+		<input type="text" id="name" placeholder="Enter Name : " />
+		<button id="btn" onclick="add()">ADD</button>
+	</div>
+	<div>
+		<p id="tab"></p>
+	</div>
+<script type="text/javascript">
+	temp = document.getElementById("name");
+	let names = [];
+	let editIndex = -1;
+	function display(){
+	let tempString = document.getElementById("tab");
+	let table = "<table border='1'>";
+	for(let i=0;i<names.length;i++){
+		table += "<tr>";
+		table += "<td>"+names[i]+"</td>";
+		table += "<td><button onclick='del("+i+")'>Delete</button></td>";
+		table += "<td><button onclick='edit("+i+")'>Edit</button></td>";
+		table += "</tr>";
+	}
+	table += "</table>";
+	tempString.innerHTML = table;
+	}
+	function add(){
+		if(editIndex===-1 && temp.value!=""){
+		names.push(temp.value);
+		}
+		else{
+			names[editIndex] = temp.value;
+			editIndex = -1;
+			document.getElementById('btn').innerHTML = "ADD";
+		}
+		display();
+		temp.value="";
+	}
+	function del(index){
+		let text = "Are you sure you want to delete data : "+names[index];
+		if(confirm(text) == true){
+		names.splice(index,1);
+		display();
+		}
+		display();
+	}
+	function edit(index){
+		editIndex = index;
+		temp.value = names[index];
+		document.getElementById('btn').innerHTML = "Edit";
+	}
+</script>
+</body>
+</html>

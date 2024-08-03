@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab6_2</title>
+</head>
+<body>
+    <button onclick="singleclick()">single click</button>
+    <button ondblclick="doubleclick()">double click</button>
+    <input type="text" onkeydown="keydown()" placeholder="keydown">
+    <input type="text" onkeyup="keyup()" placeholder="keyup">
+    <script>
+        function singleclick(){
+            console.log("single click")
+        }
+        function doubleclick(){
+            console.log("double click")
+        }
+        function keydown(){
+            console.log("key down")
+        }
+        
+        function keyup(){
+            console.log("key up")
+        }
+    </script>
+</body>
+</html>
